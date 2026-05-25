@@ -1,607 +1,555 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+/* =========================
+   GLOBAL RESET & BASICS
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  font-family:'Inter',sans-serif;
-  background:#05070a;
-  color:white;
+body {
+  font-family: 'Inter', sans-serif;
+  background: #05070a;
+  color: white;
 }
-
-
 
 /* =========================
    LOGIN PAGE
 ========================= */
-
-.login-container{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  min-height:100vh;
+.login-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
 }
 
-.login-left{
-  position:relative;
-
-  background:
-    linear-gradient(
-      rgba(0,0,0,0.82),
-      rgba(0,0,0,0.78)
-    ),
-
-    url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop');
-
-  background-size:cover;
-  background-position:center;
+.login-left {
+  position: relative;
+  background: linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.78)), 
+              url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
 }
 
-.login-text{
-  position:absolute;
-  bottom:80px;
-  left:60px;
-  max-width:560px;
+.login-text {
+  position: absolute;
+  bottom: 80px;
+  left: 60px;
+  max-width: 560px;
 }
 
-.login-text span{
-  color:#8cb369;
-  letter-spacing:3px;
-  font-size:13px;
-  font-weight:600;
+.login-text span {
+  color: #8cb369;
+  letter-spacing: 3px;
+  font-size: 13px;
+  font-weight: 600;
 }
 
-.login-text h1{
-  font-size:72px;
-  line-height:1;
-  margin:22px 0;
-  font-weight:900;
+.login-text h1 {
+  font-size: 72px;
+  line-height: 1;
+  margin: 22px 0;
+  font-weight: 900;
 }
 
-.login-text p{
-  color:#d2d8df;
-  line-height:1.9;
-  font-size:18px;
+.login-text p {
+  color: #d2d8df;
+  line-height: 1.9;
+  font-size: 18px;
 }
 
-.login-right{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:#07101b;
+.login-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #07101b;
 }
 
-.login-box{
-  width:430px;
-  background:#101822;
-  padding:50px;
-  border:1px solid rgba(255,255,255,0.06);
-  box-shadow:0 0 40px rgba(0,0,0,0.4);
+.login-box {
+  width: 430px;
+  background: #101822;
+  padding: 50px;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 0 40px rgba(0,0,0,0.4);
 }
 
-.login-box h2{
-  font-size:46px;
-  margin-bottom:10px;
-  font-weight:900;
+.login-box h2 {
+  font-size: 46px;
+  margin-bottom: 10px;
+  font-weight: 900;
 }
 
-.login-box p{
-  color:#c8d0d8;
-  margin-bottom:35px;
+.login-box p {
+  color: #c8d0d8;
+  margin-bottom: 35px;
 }
 
-.login-box form{
-  display:flex;
-  flex-direction:column;
+.login-box form {
+  display: flex;
+  flex-direction: column;
 }
 
-.login-box label{
-  margin-bottom:10px;
-  margin-top:18px;
-  font-weight:600;
+.login-box label {
+  margin-bottom: 10px;
+  margin-top: 18px;
+  font-weight: 600;
 }
 
-.login-box input{
-  background:#07101b;
-  border:1px solid rgba(255,255,255,0.08);
-  padding:17px;
-  color:white;
-  outline:none;
-  font-size:15px;
+.login-box input {
+  background: #07101b;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 17px;
+  color: white;
+  outline: none;
+  font-size: 15px;
 }
 
-.login-box input:focus{
-  border:1px solid #8cb369;
+.login-box input:focus {
+  border: 1px solid #8cb369;
 }
 
-.login-box button{
-  margin-top:35px;
-  padding:17px;
-  background:#8cb369;
-  border:none;
-  font-weight:800;
-  cursor:pointer;
-  font-size:15px;
-  transition:0.3s;
+.login-box button {
+  margin-top: 35px;
+  padding: 17px;
+  background: #8cb369;
+  border: none;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
 }
 
-.login-box button:hover{
-  opacity:0.9;
+.login-box button:hover {
+  opacity: 0.9;
 }
-
-
 
 /* =========================
-   DASHBOARD
+   DASHBOARD STRUCTURAL LAYOUT
 ========================= */
-
-.dashboard-container{
-  display:grid;
-  grid-template-columns:270px 1fr;
-  min-height:100vh;
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  min-height: 100vh;
 }
 
-.sidebar{
-  background:#0b1118;
-  padding:40px 28px;
-  border-right:1px solid rgba(255,255,255,0.05);
+.sidebar {
+  background: #0b1118;
+  padding: 40px 28px;
+  border-right: 1px solid rgba(255,255,255,0.05);
 }
 
-.sidebar-logo h2{
-  font-size:34px;
-  margin-bottom:55px;
-  font-weight:900;
+.sidebar-logo h2 {
+  font-size: 34px;
+  margin-bottom: 55px;
+  font-weight: 900;
 }
 
-.sidebar ul{
-  list-style:none;
+.sidebar ul {
+  list-style: none;
 }
 
-.sidebar li{
-  padding:18px;
-  margin-bottom:14px;
-  background:#121922;
-  cursor:pointer;
-  border-left:4px solid transparent;
-  transition:0.3s;
-  font-weight:600;
+.sidebar li {
+  padding: 18px;
+  margin-bottom: 14px;
+  background: #121922;
+  cursor: pointer;
+  border-left: 4px solid transparent;
+  transition: 0.3s;
+  font-weight: 600;
 }
 
-.sidebar li:hover{
-  background:#8cb369;
-  color:black;
-  border-left:4px solid white;
+.sidebar li:hover {
+  background: #8cb369;
+  color: black;
+  border-left: 4px solid white;
 }
 
-.active{
-  background:#8cb369 !important;
-  color:black;
+.active {
+  background: #8cb369 !important;
+  color: black !important;
 }
 
-.main-content{
-  padding:50px;
+.main-content {
+  padding: 50px;
 }
-
-
 
 /* =========================
-   TOPBAR
+   TOPBAR COMPONENT
 ========================= */
-
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:45px;
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 45px;
 }
 
-.topbar h1{
-  font-size:40px;
-  margin-bottom:10px;
+.topbar h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
 }
 
-.topbar p{
-  color:#c7d0d8;
+.topbar p {
+  color: #c7d0d8;
 }
 
-.secure-badge{
-  background:#8cb369;
-  color:black;
-  padding:15px 24px;
-  font-weight:900;
-  letter-spacing:1px;
+.secure-badge {
+  background: #8cb369;
+  color: black;
+  padding: 15px 24px;
+  font-weight: 900;
+  letter-spacing: 1px;
 }
-
-
 
 /* =========================
    BALANCE CARDS
 ========================= */
-
-.balance-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  margin-bottom:45px;
+.balance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 45px;
 }
 
-.balance-card{
-  background:#121922;
-  padding:42px;
-  border:1px solid rgba(255,255,255,0.04);
+.balance-card {
+  background: #121922;
+  padding: 42px;
+  border: 1px solid rgba(255,255,255,0.04);
 }
 
-.balance-card h3{
-  color:#c7d0d8;
-  margin-bottom:16px;
-  font-size:15px;
+.balance-card h3 {
+  color: #c7d0d8;
+  margin-bottom: 16px;
+  font-size: 15px;
 }
 
-.balance-card h2{
-  font-size:44px;
-  font-weight:900;
+.balance-card h2 {
+  font-size: 44px;
+  font-weight: 900;
 }
-
-
 
 /* =========================
-   TRANSACTIONS
+   TRANSACTIONS LIST
 ========================= */
-
-.transactions{
-  margin-bottom:50px;
+.transactions {
+  margin-bottom: 50px;
 }
 
-.section-title{
-  margin-bottom:28px;
+.section-title {
+  margin-bottom: 28px;
 }
 
-.section-title h2{
-  font-size:28px;
+.section-title h2 {
+  font-size: 28px;
 }
 
-.transaction-card{
-  background:#121922;
-  padding:32px;
-  margin-bottom:22px;
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  border:1px solid rgba(255,255,255,0.04);
+.transaction-card {
+  background: #121922;
+  padding: 32px;
+  margin-bottom: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255,255,255,0.04);
 }
 
-.transaction-card h3{
-  font-size:18px;
+.transaction-card h3 {
+  font-size: 18px;
 }
 
-.transaction-card p{
-  margin:10px 0;
-  color:#c7d0d8;
+.transaction-card p {
+  margin: 10px 0;
+  color: #c7d0d8;
 }
 
-.transaction-card span{
-  color:#8cb369;
-  font-size:14px;
-  letter-spacing:1px;
+.transaction-card span {
+  color: #8cb369;
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 
-.credit{
-  color:#8cb369;
-  font-size:30px;
-  font-weight:900;
+.credit {
+  color: #8cb369;
+  font-size: 30px;
+  font-weight: 900;
 }
-
-
 
 /* =========================
-   CHAT SECTION
+   CHAT & INTERACTION SECTION
 ========================= */
-
-.chat-section{
-  background:#121922;
-  padding:32px;
-  border:1px solid rgba(255,255,255,0.04);
+.chat-section {
+  background: #121922;
+  padding: 32px;
+  border: 1px solid rgba(255,255,255,0.04);
 }
 
-.chat-box{
-  height:340px;
-  overflow-y:auto;
-  background:#0b1118;
-  padding:22px;
-  margin-bottom:22px;
-
-  display:flex;
-  flex-direction:column;
+.chat-box {
+  height: 340px;
+  overflow-y: auto;
+  background: #0b1118;
+  padding: 22px;
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
 }
 
+.chat-message {
+  margin-bottom: 18px;
+  padding: 16px;
+  border-radius: 10px;
+  max-width: 75%;
+  animation: fadeIn 0.2s ease;
+}
 
+.chat-message strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.chat-message p {
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.customer-message {
+  background: #1d2632;
+  margin-right: auto;
+  color: white;
+}
+
+.admin-message {
+  background: #8cb369;
+  margin-left: auto;
+  color: black;
+}
+
+.chat-input-area {
+  display: flex;
+  gap: 15px;
+}
+
+.chat-input-area input {
+  flex: 1;
+  padding: 17px;
+  background: #0b1118;
+  border: none;
+  color: white;
+  outline: none;
+  font-size: 15px;
+}
+
+.chat-input-area input:focus {
+  border: 1px solid #8cb369;
+}
+
+.chat-input-area button {
+  padding: 17px 28px;
+  background: #8cb369;
+  border: none;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.chat-input-area button:hover {
+  opacity: 0.9;
+}
 
 /* =========================
-   CHAT MESSAGES
+   ADMIN PANEL STYLES
 ========================= */
-
-.chat-message{
-  margin-bottom:18px;
-  padding:16px;
-  border-radius:10px;
-  max-width:75%;
-  animation:fadeIn 0.2s ease;
+.admin-body {
+  background: #05070a;
 }
 
-.chat-message strong{
-  display:block;
-  margin-bottom:8px;
-  font-size:14px;
+.admin-container {
+  padding: 60px;
 }
 
-.chat-message p{
-  line-height:1.6;
-  font-size:15px;
+.admin-header {
+  margin-bottom: 40px;
 }
 
-.customer-message{
-  background:#1d2632;
-  margin-right:auto;
-  color:white;
+.admin-header h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
 }
 
-.admin-message{
-  background:#8cb369;
-  margin-left:auto;
-  color:black;
+.admin-header p {
+  color: #c7d0d8;
 }
 
+.admin-chat-box {
+  background: #121922;
+  height: 520px;
+  overflow-y: auto;
+  padding: 30px;
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255,255,255,0.04);
+}
 
+.admin-reply {
+  display: flex;
+  gap: 20px;
+}
+
+.admin-reply input {
+  flex: 1;
+  padding: 17px;
+  background: #121922;
+  border: none;
+  color: white;
+  outline: none;
+  font-size: 15px;
+}
+
+.admin-reply input:focus {
+  border: 1px solid #8cb369;
+}
+
+.admin-reply button {
+  padding: 17px 34px;
+  background: #8cb369;
+  border: none;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.admin-reply button:hover {
+  opacity: 0.9;
+}
 
 /* =========================
-   CHAT INPUT
+   GLOBAL CUSTOM SCROLLBAR
 ========================= */
-
-.chat-input-area{
-  display:flex;
-  gap:15px;
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.chat-input-area input{
-  flex:1;
-  padding:17px;
-  background:#0b1118;
-  border:none;
-  color:white;
-  outline:none;
-  font-size:15px;
+::-webkit-scrollbar-track {
+  background: #0b1118;
 }
 
-.chat-input-area input:focus{
-  border:1px solid #8cb369;
+::-webkit-scrollbar-thumb {
+  background: #8cb369;
 }
-
-.chat-input-area button{
-  padding:17px 28px;
-  background:#8cb369;
-  border:none;
-  font-weight:800;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.chat-input-area button:hover{
-  opacity:0.9;
-}
-
-
 
 /* =========================
-   ADMIN PANEL
+   ANIMATIONS
 ========================= */
-
-.admin-body{
-  background:#05070a;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-.admin-container{
-  padding:60px;
-}
-
-.admin-header{
-  margin-bottom:40px;
-}
-
-.admin-header h1{
-  font-size:42px;
-  margin-bottom:10px;
-}
-
-.admin-header p{
-  color:#c7d0d8;
-}
-
-.admin-chat-box{
-  background:#121922;
-  height:520px;
-  overflow-y:auto;
-  padding:30px;
-  margin-bottom:22px;
-
-  display:flex;
-  flex-direction:column;
-
-  border:1px solid rgba(255,255,255,0.04);
-}
-
-.admin-reply{
-  display:flex;
-  gap:20px;
-}
-
-.admin-reply input{
-  flex:1;
-  padding:17px;
-  background:#121922;
-  border:none;
-  color:white;
-  outline:none;
-  font-size:15px;
-}
-
-.admin-reply input:focus{
-  border:1px solid #8cb369;
-}
-
-.admin-reply button{
-  padding:17px 34px;
-  background:#8cb369;
-  border:none;
-  font-weight:800;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.admin-reply button:hover{
-  opacity:0.9;
-}
-
-
 
 /* =========================
-   SCROLLBAR
+   COMPREHENSIVE RESPONSIVE DESIGN
 ========================= */
-
-::-webkit-scrollbar{
-  width:8px;
-}
-
-::-webkit-scrollbar-track{
-  background:#0b1118;
-}
-
-::-webkit-scrollbar-thumb{
-  background:#8cb369;
-}
-
-
-
-/* =========================
-   ANIMATION
-========================= */
-
-@keyframes fadeIn{
-
-  from{
-    opacity:0;
-    transform:translateY(5px);
+@media (max-width: 950px) {
+  .login-container {
+    grid-template-columns: 1fr;
   }
 
-  to{
-    opacity:1;
-    transform:translateY(0);
+  .login-left {
+    display: none;
   }
 
-}
-
-
-
-/* =========================
-   MOBILE RESPONSIVE
-========================= */
-
-@media(max-width:950px){
-
-  .login-container{
-    grid-template-columns:1fr;
+  .login-box {
+    width: 90%;
   }
 
-  .login-left{
-    display:none;
+  .login-text h1 {
+    font-size: 48px;
   }
 
-  .dashboard-container{
-    grid-template-columns:1fr;
-  }
-
-  .sidebar{
-    display:none;
-  }
-
-  .balance-grid{
-    grid-template-columns:1fr;
-  }
-
-  .topbar{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:20px;
-  }
-
-  .transaction-card{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:20px;
-  }
-
-  .admin-container{
-    padding:25px;
-  }
-
-  .main-content{
-    padding:25px;
-  }
-
-  .login-box{
-    width:90%;
-  }
-
-  .login-text h1{
-    font-size:48px;
-  }
-
-}
-/* RESPONSIVE DESIGN FOR MOBILE DEVICES */
-@media (max-width: 768px) {
-  /* Change layout container from row to column stacking */
+  /* Reworking Dashboard structure for Tablet/Mobile viewport boundaries */
   .dashboard-container {
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
   }
 
-  /* Make the sidebar full width and put it right at the top or bottom */
+  /* Forcing the sidebar to stay visible and act as a top header navigation map */
   .sidebar {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 15px;
+    display: block !important;
+    width: 100% !important;
+    padding: 20px !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
   }
 
-  /* Turn the navigation list into a flexible horizontal layout */
+  .sidebar-logo h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
   .sidebar ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 0;
-    margin: 10px 0 0 0;
-    list-style-type: none;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px;
   }
 
-  /* Style individual menu items like actionable buttons */
-  .sidebar ul li {
-    padding: 8px 12px;
-    margin: 5px;
-    font-size: 14px;
-    background: rgba(255, 255, 255, 0.1); /* Subtle background accent */
-    border-radius: 4px;
-    white-space: nowrap;
-    cursor: pointer;
+  .sidebar li {
+    padding: 10px 14px !important;
+    margin-bottom: 0 !important;
+    font-size: 13px;
+    border-left: none !important;
+    border-bottom: 3px solid transparent;
+    background: #121922;
   }
 
-  /* Visual highlight for the active menu section */
-  .sidebar ul li.active {
-    background: rgba(255, 255, 255, 0.25);
-    font-weight: bold;
+  .sidebar li:hover {
+    border-left: none !important;
+    border-bottom: 3px solid white;
   }
 
-  /* Reset main area padding to prevent content crowding */
+  /* Content space modifications */
   .main-content {
-    padding: 15px;
+    padding: 20px !important;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .topbar h1 {
+    font-size: 28px;
+  }
+
+  .balance-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .balance-card {
+    padding: 25px;
+  }
+
+  .balance-card h2 {
+    font-size: 32px;
+  }
+
+  .transaction-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .admin-container {
+    padding: 20px;
   }
 }
