@@ -558,3 +558,50 @@ body{
   }
 
 }
+/* RESPONSIVE DESIGN FOR MOBILE DEVICES */
+@media (max-width: 768px) {
+  /* Change layout container from row to column stacking */
+  .dashboard-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Make the sidebar full width and put it right at the top or bottom */
+  .sidebar {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+  }
+
+  /* Turn the navigation list into a flexible horizontal layout */
+  .sidebar ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
+    margin: 10px 0 0 0;
+    list-style-type: none;
+  }
+
+  /* Style individual menu items like actionable buttons */
+  .sidebar ul li {
+    padding: 8px 12px;
+    margin: 5px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.1); /* Subtle background accent */
+    border-radius: 4px;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  /* Visual highlight for the active menu section */
+  .sidebar ul li.active {
+    background: rgba(255, 255, 255, 0.25);
+    font-weight: bold;
+  }
+
+  /* Reset main area padding to prevent content crowding */
+  .main-content {
+    padding: 15px;
+  }
+}
