@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000";
+const API_URL = "https://sbk-holts-bank.onrender.com";
 
 // Send message over the network to the Express backend
 async function sendMessage() {

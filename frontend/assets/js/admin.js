@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000";
+const API_URL = "https://sbk-holts-bank.onrender.com";
 
 // Send an administrative reply to the server array
 async function sendAdminReply() {
