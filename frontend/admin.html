@@ -4,14 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>SBK-Holts Admin Panel</title>
-
   <link rel="stylesheet" href="assets/css/dashboard.css">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 
@@ -20,36 +16,27 @@
   <div class="admin-container">
 
     <div class="admin-header">
-
       <h1>SBK-Holts Support Console</h1>
-
-      <p>
-        Customer Service Administration
-      </p>
-
+      <p>Customer Service Administration</p>
     </div>
 
-    <div class="admin-chat-box" id="adminChatBox">
-
-    </div>
+    <div class="admin-chat-box" id="adminChatBox"></div>
 
     <div class="admin-reply">
-
       <input
         type="text"
-        id="adminReplyInput"
-        placeholder="Reply to customer...">
+        id="adminInput"
+        placeholder="Reply to customer..."
+        onkeydown="if(event.key === 'Enter') sendAdminReply()">
 
       <button onclick="sendAdminReply()">
         Send Reply
       </button>
-
     </div>
 
   </div>
 
-  <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/admin.js"></script>
 
 </body>
-
 </html>

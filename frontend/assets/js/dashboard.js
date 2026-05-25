@@ -1,493 +1,56 @@
-// =====================================
-// LOGIN SYSTEM
-// =====================================
+const API_URL = "http://localhost:3000";
 
-const loginForm =
-  document.getElementById("loginForm");
+// Send message over the network to the Express backend
+async function sendMessage() {
+  const input = document.getElementById("chatInput");
+  const text = input.value.trim();
+  if (!text) return;
 
-
-if(loginForm){
-
-  loginForm.addEventListener(
-    "submit",
-    function(e){
-
-      e.preventDefault();
-
-      const username =
-        document.getElementById(
-          "username"
-        ).value;
-
-      const password =
-        document.getElementById(
-          "password"
-        ).value;
-
-
-
-      if(
-
-        username === "Marie.holts" &&
-        password === "Marie085216"
-
-      ){
-
-        localStorage.setItem(
-          "loggedIn",
-          "true"
-        );
-
-        window.location.href =
-          "dashboard.html";
-
-      }
-
-      else{
-
-        alert(
-          "Invalid Secure Credentials"
-        );
-
-      }
-
-    }
-  );
-
-}
-
-
-
-// =====================================
-// SESSION CHECK
-// =====================================
-
-if(
-  window.location.pathname.includes(
-    "dashboard.html"
-  )
-){
-
-  const isLoggedIn =
-    localStorage.getItem(
-      "loggedIn"
-    );
-
-  if(isLoggedIn !== "true"){
-
-    window.location.href =
-      "login.html";
-
+  try {
+    await fetch(`${API_URL}/message`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ sender: "customer", text: text })
+    });
+    input.value = "";
+    loadMessages(); // Refresh UI immediately after sending
+  } catch (error) {
+    console.error("Error sending message:", error);
   }
-
 }
 
+// Fetch all messages from backend array and render them dynamically
+async function loadMessages() {
+  try {
+    const res = await fetch(`${API_URL}/messages`);
+    const messages = await res.json();
+    const chatBox = document.getElementById("chatBox");
+    if (!chatBox) return;
 
-
-// =====================================
-// LOGOUT
-// =====================================
-
-function logout(){
-
-  localStorage.removeItem(
-    "loggedIn"
-  );
-
-  window.location.href =
-    "login.html";
-
-}
-
-
-
-// =====================================
-// TRANSFER RESTRICTION
-// =====================================
-
-const transferBtn =
-  document.getElementById(
-    "transferBtn"
-  );
-
-
-if(transferBtn){
-
-  transferBtn.addEventListener(
-    "click",
-    function(){
-
-      alert(
-
-        "Transfers are currently restricted on this account. Please contact SBK-Holts Secure Support Division."
-
-      );
-
-      document
-        .getElementById("chatInput")
-        .focus();
-
-    }
-  );
-
-}
-
-
-
-// =====================================
-// RENDER MESSAGES
-// =====================================
-
-function renderMessages(){
-
-  const customerChat =
-    document.getElementById(
-      "chatBox"
-    );
-
-  const adminChat =
-    document.getElementById(
-      "adminChatBox"
-    );
-
-
-  const messages =
-    JSON.parse(
-      localStorage.getItem(
-        "messages"
-      )
-    ) || [];
-
-
-
-  // =========================
-  // CUSTOMER CHAT
-  // =========================
-
-  if(customerChat){
-
-    customerChat.innerHTML = "";
-
+    chatBox.innerHTML = ""; // Clear old message UI blocks
 
     messages.forEach(msg => {
-
-      const div =
-        document.createElement("div");
-
-
-
-      if(msg.type === "customer"){
-
-        div.className =
-          "chat-message customer-message";
-
-      }
-
-      else{
-
-        div.className =
-          "chat-message admin-message";
-
-      }
-
-
-
-      div.innerHTML = `
-
-        <strong>${msg.sender}</strong>
-
+      const msgDiv = document.createElement("div");
+      const isAdmin = msg.sender === "admin";
+      
+      // Dynamic CSS assignment based on who sent the packet
+      msgDiv.className = `chat-message ${isAdmin ? 'admin-message' : 'customer-message'}`;
+      
+      msgDiv.innerHTML = `
+        <strong>${isAdmin ? 'SBK Support' : 'Marie Coste'}</strong>
         <p>${msg.text}</p>
-
+        <span style="font-size:10px; opacity:0.5; display:block; text-align:right; margin-top:5px;">${msg.timestamp}</span>
       `;
-
-      customerChat.appendChild(div);
-
+      chatBox.appendChild(msgDiv);
     });
 
-
-
-    customerChat.scrollTop =
-      customerChat.scrollHeight;
-
+    // Auto scroll down to latest message
+    chatBox.scrollTop = chatBox.scrollHeight;
+  } catch (error) {
+    console.error("Error loading chat messages:", error);
   }
-
-
-
-  // =========================
-  // ADMIN CHAT
-  // =========================
-
-  if(adminChat){
-
-    adminChat.innerHTML = "";
-
-
-    messages.forEach(msg => {
-
-      const div =
-        document.createElement("div");
-
-
-
-      if(msg.type === "customer"){
-
-        div.className =
-          "chat-message customer-message";
-
-      }
-
-      else{
-
-        div.className =
-          "chat-message admin-message";
-
-      }
-
-
-
-      div.innerHTML = `
-
-        <strong>${msg.sender}</strong>
-
-        <p>${msg.text}</p>
-
-      `;
-
-      adminChat.appendChild(div);
-
-    });
-
-
-
-    adminChat.scrollTop =
-      adminChat.scrollHeight;
-
-  }
-
 }
 
-
-
-// =====================================
-// CUSTOMER SEND MESSAGE
-// =====================================
-
-function sendMessage(){
-
-  const input =
-    document.getElementById(
-      "chatInput"
-    );
-
-
-  const text =
-    input.value.trim();
-
-
-
-  if(text === "")
-    return;
-
-
-
-  const messages =
-    JSON.parse(
-      localStorage.getItem(
-        "messages"
-      )
-    ) || [];
-
-
-
-  messages.push({
-
-    sender:
-      "Marie Costa",
-
-    text:
-      text,
-
-    type:
-      "customer",
-
-    timestamp:
-      Date.now()
-
-  });
-
-
-
-  localStorage.setItem(
-
-    "messages",
-
-    JSON.stringify(messages)
-
-  );
-
-
-
-  input.value = "";
-
-
-
-  renderMessages();
-
-}
-
-
-
-// =====================================
-// ADMIN SEND MESSAGE
-// =====================================
-
-function sendAdminReply(){
-
-  const input =
-    document.getElementById(
-      "adminReplyInput"
-    );
-
-
-  const text =
-    input.value.trim();
-
-
-
-  if(text === "")
-    return;
-
-
-
-  const messages =
-    JSON.parse(
-      localStorage.getItem(
-        "messages"
-      )
-    ) || [];
-
-
-
-  messages.push({
-
-    sender:
-      "SBK-Holts Support",
-
-    text:
-      text,
-
-    type:
-      "admin",
-
-    timestamp:
-      Date.now()
-
-  });
-
-
-
-  localStorage.setItem(
-
-    "messages",
-
-    JSON.stringify(messages)
-
-  );
-
-
-
-  input.value = "";
-
-
-
-  renderMessages();
-
-}
-
-
-
-// =====================================
-// ENTER KEY SUPPORT
-// =====================================
-
-document.addEventListener(
-  "keydown",
-  function(e){
-
-    // CUSTOMER ENTER
-
-    const customerInput =
-      document.getElementById(
-        "chatInput"
-      );
-
-    if(
-
-      customerInput &&
-      document.activeElement === customerInput &&
-      e.key === "Enter"
-
-    ){
-
-      sendMessage();
-
-    }
-
-
-
-    // ADMIN ENTER
-
-    const adminInput =
-      document.getElementById(
-        "adminReplyInput"
-      );
-
-    if(
-
-      adminInput &&
-      document.activeElement === adminInput &&
-      e.key === "Enter"
-
-    ){
-
-      sendAdminReply();
-
-    }
-
-  }
-);
-
-
-
-// =====================================
-// LIVE REALTIME UPDATE
-// =====================================
-
-window.addEventListener(
-  "storage",
-  function(){
-
-    renderMessages();
-
-  }
-);
-
-
-
-// =====================================
-// AUTO REFRESH
-// =====================================
-
-setInterval(() => {
-
-  renderMessages();
-
-}, 500);
-
-
-
-// =====================================
-// INITIAL RENDER
-// =====================================
-
-renderMessages();
+// Check for new messages automatically every 3 seconds
+setInterval(loadMessages, 3000);
+loadMessages(); // Initial call when the page mounts

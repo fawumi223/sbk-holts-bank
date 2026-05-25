@@ -2,19 +2,13 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>SBK-Holts Secure Login</title>
-
   <link rel="stylesheet" href="assets/css/dashboard.css">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
 </head>
 
 <body class="login-body">
@@ -22,44 +16,33 @@
   <div class="login-container">
 
     <div class="login-left">
-
       <div class="login-text">
-
         <span>UNITED KINGDOM DEFENCE BANKING</span>
-
         <h1>Secure Military Banking Infrastructure</h1>
-
         <p>
           Access protected banking services designed
           for military personnel and defence-linked clients.
         </p>
-
       </div>
-
     </div>
 
     <div class="login-right">
-
       <div class="login-box">
-
         <h2>SBK-Holts</h2>
-
         <p>Secure Client Authentication Portal</p>
 
-        <form id="loginForm">
-
+        <div class="login-form-container">
           <label>Username</label>
           <input type="text" id="username" placeholder="Enter Username" required>
 
           <label>Password</label>
           <input type="password" id="password" placeholder="Enter Password" required>
 
-          <button type="submit">Access Secure Banking</button>
-
-        </form>
-
+          <button type="button" onclick="window.location.href='dashboard.html'">
+            Access Secure Banking
+          </button>
+        </div>
       </div>
-
     </div>
 
   </div>
@@ -67,5 +50,4 @@
   <script src="assets/js/dashboard.js"></script>
 
 </body>
-
 </html>
