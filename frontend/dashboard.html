@@ -2,47 +2,31 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>SBK-Holts Dashboard</title>
-
   <link rel="stylesheet" href="assets/css/dashboard.css">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
 </head>
 
 <body class="dashboard-body">
 
-
   <div class="dashboard-container">
-
-
-    <!-- SIDEBAR -->
 
     <aside class="sidebar">
 
       <div class="sidebar-logo">
-
         <h2>SBK-Holts</h2>
-
       </div>
 
-
       <ul>
-
         <li class="active">
           Dashboard
         </li>
 
-        <li id="transferBtn">
+        <li id="transferBtn" onclick="alert('You cant make transfer on this account right now, contact customer service for more info ..')" style="cursor: pointer;">
           Transfer Money
         </li>
 
@@ -57,182 +41,76 @@
         <li onclick="logout()">
           Logout
         </li>
-
       </ul>
 
     </aside>
 
-
-
-    <!-- MAIN -->
-
     <main class="main-content">
 
-
-      <!-- TOPBAR -->
-
       <div class="topbar">
-
         <div>
-
-          <h1>
-            Welcome, Marie Coste
-          </h1>
-
-          <p>
-            United Kingdom Military Banking Division
-          </p>
-
+          <h1>Welcome, Marie Coste</h1>
+          <p>United Kingdom Military Banking Division</p>
         </div>
-
         <div class="secure-badge">
           SECURE SESSION ACTIVE
         </div>
-
       </div>
 
-
-
-      <!-- BALANCE -->
-
       <section class="balance-grid">
-
-
         <div class="balance-card">
-
           <h3>Current Balance</h3>
-
-          <h2>
-            £1,000,000.00
-          </h2>
-
+          <h2>£1,000,000.00</h2>
         </div>
-
-
 
         <div class="balance-card">
-
           <h3>Available Balance</h3>
-
-          <h2>
-            £1,000,000.00
-          </h2>
-
+          <h2>£1,000,000.00</h2>
         </div>
-
       </section>
-
-
-
-      <!-- TRANSACTIONS -->
 
       <section class="transactions">
-
         <div class="section-title">
-
-          <h2>
-            Recent Transactions
-          </h2>
-
+          <h2>Recent Transactions</h2>
         </div>
-
-
 
         <div class="transaction-card">
-
           <div>
-
-            <h3>
-              Wire Transfer Credit
-            </h3>
-
-            <p>
-              British Royal Bank
-            </p>
-
-            <span>
-              Ref: TYY356K
-            </span>
-
+            <h3>Wire Transfer Credit</h3>
+            <p>British Royal Bank</p>
+            <span>Ref: TYY356K</span>
           </div>
-
-          <h2 class="credit">
-            +£750,000.00
-          </h2>
-
+          <h2 class="credit">+£750,000.00</h2>
         </div>
-
-
 
         <div class="transaction-card">
-
           <div>
-
-            <h3>
-              Wire Transfer Credit
-            </h3>
-
-            <p>
-              British Royal Bank
-            </p>
-
-            <span>
-              Ref: BBDH465FH
-            </span>
-
+            <h3>Wire Transfer Credit</h3>
+            <p>British Royal Bank</p>
+            <span>Ref: BBDH465FH</span>
           </div>
-
-          <h2 class="credit">
-            +£250,000.00
-          </h2>
-
+          <h2 class="credit">+£250,000.00</h2>
         </div>
-
       </section>
 
-
-
-      <!-- SUPPORT CHAT -->
-
       <section class="chat-section">
-
         <div class="section-title">
-
-          <h2>
-            SBK-Holts Secure Support Division
-          </h2>
-
+          <h2>SBK-Holts Secure Support Division</h2>
         </div>
 
-
-        <div class="chat-box" id="chatBox">
-
-        </div>
-
+        <div class="chat-box" id="chatBox"></div>
 
         <div class="chat-input-area">
-
-          <input
-            type="text"
-            id="chatInput"
-            placeholder="Type message...">
-
-
-          <button onclick="sendMessage()">
-            Send
-          </button>
-
+          <input type="text" id="chatInput" placeholder="Type message...">
+          <button onclick="sendMessage()">Send</button>
         </div>
-
       </section>
 
     </main>
 
   </div>
 
-
   <script src="assets/js/dashboard.js"></script>
 
 </body>
-
 </html>
